@@ -1,0 +1,44 @@
+services:
+  ntfy:
+    image: binwiederhier/ntfy:${SERVICE_VERSION}
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    user: ${UID}:${GID}
+    security_opt:
+      - no-new-privileges:true
+    # command to execute when the container start
+    command: serve
+
+    environment:
+      NTFY_BASE_URL: https://${TRAEFIK_HOST}
+      TZ: ${TZ}
+
+    volumes:
+      - .docker/data:/var/lib/ntfy # auth + cache + attachement
+      - .docker/config.yaml:/etc/ntfy/server.yml:ro
+
+    networks:
+      - service-net
+      - traefik-net
+
+    healthcheck: # optional: remember to adapt the host:port to your environment
+      test: ["CMD-SHELL", "wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    init: true # prevents zombie processes from healthcheck
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${CONTAINER_NAME}-https.rule=Host(`${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.${CONTAINER_NAME}-https.entrypoints=websecure"
+      - "traefik.http.services.${CONTAINER_NAME}.loadbalancer.server.port=${TRAEFIK_PORT}"
+
+networks:
+  service-net: # specific network name for this service
+    internal: true # just talk with internal services, no internet access
+    name: ${SERVICE_NET}
+  traefik-net: # local or vps traefik network
+    external: true
+    name: ${TRAEFIK_NET}
