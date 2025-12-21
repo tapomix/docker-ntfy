@@ -1,0 +1,23 @@
+# attachements
+attachment-cache-dir: /var/lib/ntfy/attachments # @see volumes in compose.yaml
+attachment-total-size-limit: "1M"
+
+# auth
+auth-default-access: deny-all
+auth-file: /var/lib/ntfy/auth.db # @see volumes in compose.yaml
+
+# cache
+cache-file: /var/lib/ntfy/cache.db # @see volumes in compose.yaml
+
+# login
+enable-login: true
+enable-signup: false
+
+# log
+log-format: json
+
+# message
+message-size-limit: "1k"
+
+# proxy
+behind-proxy: true # traefik is used
