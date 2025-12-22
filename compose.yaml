@@ -6,6 +6,9 @@ services:
     user: ${UID}:${GID}
     security_opt:
       - no-new-privileges:true
+    read_only: true
+    cap_drop:
+      - ALL
     # command to execute when the container start
     command: serve
 
