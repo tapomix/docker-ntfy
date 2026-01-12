@@ -52,9 +52,9 @@ services:
       - "traefik.http.services.${CONTAINER_NAME}.loadbalancer.server.port=${TRAEFIK_PORT}"
 
 networks:
-  service-net: # specific network name for this service
+  service-net:
     internal: true # just talk with internal services, no internet access
     name: ${SERVICE_NET}
-  traefik-net: # local or vps traefik network
+  traefik-net:
     external: true
     name: ${TRAEFIK_NET}

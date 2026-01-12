@@ -6,10 +6,6 @@
 /.docker/data/*
 !/.docker/data/.gitkeep
 
-# claude
-/.claude/
-/CLAUDE.md
-
 # config
 /.env
 /compose.override.yaml
