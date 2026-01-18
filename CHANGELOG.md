@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [0.2.0] - 2026-01-18
+
+### Added
+
+- Explain how to create the service network
+- Create [UPGRADE](UPGRADE.md) guide
+
+### Changed
+
+- Declare `service-net` network as external
+- Rename `UID/GID` to avoid conflicts with system environment variables
+
+### Fixed
+
+- Fix deprecation warning for security_opt using `:` as separator
+
+---
+
 ## [0.1.1] - 2026-01-18
 
 ### Added
