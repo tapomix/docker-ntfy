@@ -32,8 +32,8 @@ cp .env.dist .env
 | `TRAEFIK_HOST` | Public hostname for Traefik routing |
 | `TRAEFIK_NET` | Traefik network name |
 | `TRAEFIK_PORT` | Internal port exposed to Traefik (default: `80`) |
-| `UID` | User ID for file permissions (default: `1000`) |
-| `GID` | Group ID for file permissions (default: `1000`) |
+| `USER_ID` | User ID for file permissions (default: `1000`) |
+| `GROUP_ID` | Group ID for file permissions (default: `1000`) |
 | `TZ` | Timezone (default: `Etc/UTC`) |
 
 ### ntfy Configuration
