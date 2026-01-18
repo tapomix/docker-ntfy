@@ -12,6 +12,12 @@ Clone the repository:
 git clone https://github.com/tapomix/docker-ntfy.git ntfy
 ```
 
+Create the internal network for inter-service communication:
+
+```bash
+docker network create --internal ntfy # or your SERVICE_NET value
+```
+
 ## Configuration
 
 ### Environment file
