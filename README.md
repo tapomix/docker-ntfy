@@ -91,6 +91,10 @@ docker compose exec ntfy ntfy token list
 3. Subscribe to a topic (e.g. `alerts`)
 4. Authenticate with your username/password or access token
 
+## Upgrade
+
+When upgrading to a new version of this template, check [UPGRADE.md](UPGRADE.md) for any breaking changes and migration instructions.
+
 ## Resources
 
 - [ntfy documentation](https://docs.ntfy.sh/)
