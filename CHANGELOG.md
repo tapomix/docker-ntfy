@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [0.1.1] - 2026-01-18
+
+### Added
+
+- Traefik label to force network for docker provider
+
+### Fixed
+
+- Upgrade too restrictive pids_limit
+
+---
+
 ## [0.1.0] - 2026-01-12
 
 ### Added
@@ -12,7 +24,7 @@ All notable changes to this project will be documented in this file.
 - Static configuration file for ntfy
 - `.env` template for environment variables
 - `data/` directory for persistence
-- README documentation
+- [README](README.md) documentation
 - Docker Compose configuration with security hardening
 
 ---
