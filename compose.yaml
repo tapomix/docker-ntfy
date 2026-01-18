@@ -54,7 +54,7 @@ services:
 
 networks:
   service-net:
-    internal: true # just talk with internal services, no internet access
+    external: true
     name: ${SERVICE_NET}
   traefik-net:
     external: true
